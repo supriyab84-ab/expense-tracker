@@ -1,0 +1,6 @@
+﻿@import "../dashboard/Dashboard.css";
+@import "../expenses/Expenses.css";
+
+.stat-pill-icon.income-pill {
+  background: #e5faef;
+}

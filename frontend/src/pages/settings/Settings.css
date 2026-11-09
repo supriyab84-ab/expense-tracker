@@ -1,0 +1,59 @@
+﻿@import "../dashboard/Dashboard.css";
+@import "../expenses/Expenses.css";
+
+.settings-card {
+  max-width: 680px;
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  border: 1px solid #eaecf2;
+  box-shadow: 0 8px 30px rgba(28, 36, 55, 0.045);
+  margin-bottom: 24px;
+}
+
+.profile-detail-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 16px 0;
+  border-bottom: 1px solid #f0f1f5;
+}
+
+.profile-detail-row:last-child {
+  border-bottom: none;
+}
+
+.profile-detail-label {
+  width: 140px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+.profile-detail-val {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.danger-zone {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #f0f1f5;
+}
+
+.logout-action-btn {
+  padding: 12px 24px;
+  background: #fee2e2;
+  color: #dc2626;
+  border: 1px solid #fca5a5;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.logout-action-btn:hover {
+  background: #fecaca;
+}

@@ -1,0 +1,356 @@
+@import "../dashboard/Dashboard.css";
+@import "../expenses/Expenses.css";
+
+/* =====================================
+   BUDGETS PAGE STYLES
+===================================== */
+
+.budgets-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Warning & Status Banners */
+.budget-status-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 18px 22px;
+  border-radius: 16px;
+  font-size: 13px;
+  line-height: 1.5;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+}
+
+.budget-status-banner.alert-danger {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+}
+
+.budget-status-banner.alert-warning {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  color: #92400e;
+}
+
+.budget-status-banner.alert-success {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #166534;
+}
+
+.budget-status-banner.alert-info {
+  background: #f5f3ff;
+  border: 1px solid #ddd6fe;
+  color: #5b21b6;
+}
+
+.banner-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.banner-content strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.banner-content p {
+  margin: 0;
+  opacity: 0.95;
+}
+
+/* Main Grid for Budgets */
+.budget-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 1024px) {
+  .budget-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Progress Card */
+.budget-progress-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.budget-progress-track {
+  width: 100%;
+  height: 18px;
+  background: #f1f5f9;
+  border-radius: 999px;
+  overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.budget-progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(109, 67, 232, 0.25);
+}
+
+.progress-labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.progress-labels strong {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.budget-status-pill {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-safe {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.status-warning {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.status-danger {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.status-unset {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+/* Set / Edit Budget Form Card */
+.budget-form-card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.budget-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.budget-currency-symbol {
+  position: absolute;
+  left: 16px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #6d43e8;
+  pointer-events: none;
+}
+
+.budget-amount-input {
+  width: 100%;
+  padding: 14px 16px 14px 38px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1e293b;
+  background: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  outline: none;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.budget-amount-input:focus {
+  border-color: #6d43e8;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(109, 67, 232, 0.12);
+}
+
+/* Preset Buttons */
+.budget-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.preset-chip {
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  color: #475569;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.preset-chip:hover {
+  border-color: #6d43e8;
+  color: #6d43e8;
+  background: #f5f3ff;
+}
+
+.preset-chip.active {
+  background: #6d43e8;
+  border-color: #6d43e8;
+  color: #ffffff;
+}
+
+/* Save / Reset Buttons */
+.budget-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.btn-save-budget {
+  flex: 1;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #6d43e8, #8b5cf6);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(109, 67, 232, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-save-budget:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(109, 67, 232, 0.35);
+}
+
+.btn-save-budget:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-delete-budget {
+  padding: 12px 16px;
+  background: #fee2e2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-delete-budget:hover:not(:disabled) {
+  background: #fecaca;
+}
+
+/* Category Spending Breakdown */
+.category-breakdown-card {
+  margin-top: 8px;
+}
+
+.category-breakdown-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.category-breakdown-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cat-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+}
+
+.cat-item-name {
+  font-weight: 600;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cat-item-amounts {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.cat-item-amount {
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.cat-item-pct {
+  color: #64748b;
+  font-size: 11px;
+}
+
+.cat-progress-track {
+  width: 100%;
+  height: 8px;
+  background: #f1f5f9;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.cat-progress-fill {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.3s ease;
+}
+
+/* Feedback Toast */
+.budget-feedback {
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  animation: fadeIn 0.2s ease;
+}
+
+.budget-feedback.success {
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+.budget-feedback.error {
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
